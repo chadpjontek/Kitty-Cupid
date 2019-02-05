@@ -1,0 +1,102 @@
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #a00;
+  font-family: "Comic Sans MS", sans-serif, Helvetica, serif;
+}
+
+canvas{
+  display:block;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title {
+  color: #fff;
+  text-shadow: 3px 3px 5px #000;
+  font-size: 3rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.title-info {
+  text-shadow: 1px 1px #fff;
+  font-size: 2rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.kitty-img {
+  display: block;
+  margin: 0 auto;
+}
+
+.arrow-img {
+  display: block;
+  margin: 0 auto;
+}
+
+.start-button {
+  display: block;
+  margin: 1rem auto;
+  font-size: 1.5rem;
+  padding: .5rem;
+}
+
+.modalContainer {
+  display: none;
+  position: fixed;
+  z-index: 1111;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  overflow-y: auto;
+}
+
+.athsModal {
+  background-color: #a00;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #fff;
+  width: 80%;
+  border-radius: 15px;
+}
+
+.modalInfo {
+  font-size: 24px;
+  color: #fff;
+}
+
+.yesBtn {
+  font-size: 24px;
+  padding: 12px;
+  background: #fff;
+  color: #000;
+  border-radius: 10px;
+  border: 0px;
+}
+
+.noBtn {
+  margin: 0 0 0 48px;
+  font-size: 24px;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+  border: 0px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
