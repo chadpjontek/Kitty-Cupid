@@ -35,7 +35,7 @@ function component() {
     arrow.style.animation = 'spin 2s linear infinite';
     import(/* webpackChunkName: "game" */ './game').then(module => {
       const game = module.default;
-      game();
+      game(deferredPrompt);
       container.remove();
     });
   };
@@ -43,3 +43,51 @@ function component() {
 }
 
 document.body.appendChild(component());
+
+// If servive workers are supported, register ours.
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('./sw.js')
+    .then(function () { console.log('Service Worker Registered'); }); // eslint-disable-line no-console
+  // create a modal to display when install event is triggered
+  bodyElement = document.getElementsByTagName('BODY')[0];
+  modalContainer = document.createElement('div');
+  athsModal = document.createElement('div');
+  modalInfo = document.createElement('p');
+  yesBtn = document.createElement('button');
+  noBtn = document.createElement('button');
+  modalContainer.id = 'modalContainer';
+  yesBtn.id = 'yesBtn';
+  noBtn.id = 'noBtn';
+  modalContainer.classList.add('modalContainer');
+  athsModal.classList.add('athsModal');
+  modalInfo.classList.add('modalInfo');
+  yesBtn.classList.add('yesBtn');
+  noBtn.classList.add('noBtn');
+  yesBtn.innerHTML = 'Yes';
+  noBtn.innerHTML = 'No';
+  modalInfo.innerHTML = 'Would you like to add this game to your Home Screen for easy access? You will also be able to play it without an internet connection!';
+  athsModal.appendChild(modalInfo);
+  athsModal.appendChild(yesBtn);
+  athsModal.appendChild(noBtn);
+  modalContainer.appendChild(athsModal);
+  bodyElement.appendChild(modalContainer);
+}
+
+// Variables to hold "add to home screen prompt" if/when it gets triggered
+let deferredPrompt = null;
+let bodyElement;
+let modalContainer;
+let athsModal;
+let modalInfo;
+let yesBtn;
+let noBtn;
+
+// add a listener for the beforeinstallprompt
+window.addEventListener('beforeinstallprompt', (e) => {
+  console.log('prompting'); // eslint-disable-line no-console
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+});
