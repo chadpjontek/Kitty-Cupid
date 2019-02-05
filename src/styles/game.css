@@ -28,7 +28,7 @@ canvas{
 }
 
 .title-info {
-  text-shadow: 1px 1px #fff;
+  color: #fff;
   font-size: 2rem;
   margin: 1rem auto;
   text-align: center;
