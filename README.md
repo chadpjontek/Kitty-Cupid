@@ -17,5 +17,6 @@
 * Add Open Graph stories
 * Include sound in offline version
 * Balance difficulty
-* Add toggle mode for dog lovers :dog: :heart:
+* ~~Add toggle mode for dog lovers~~ :dog: :heart:
 * Add multiplayer battle royal mode :stuck_out_tongue_winking_eye:
+### [>>------> Dog lovers go here  <------<<](https://github.com/chadpjontek/Puppy-Love)
